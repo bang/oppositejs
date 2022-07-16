@@ -1,0 +1,2 @@
+export OPPOSITEJS_HOME_DIR=/home/oppositejs
+export OPPOSITE_PORT=8088

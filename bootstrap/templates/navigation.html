@@ -1,0 +1,33 @@
+<style>
+    div.navigation {
+        display: table-cell;
+        border: 1px solid black;
+        margin: auto;
+        padding: auto;
+        width: 200px;
+    }
+
+    div.navigation-activated {
+        background-color: #009ECB;
+        color: #EEEEEE;
+    }
+
+</style>
+<div class="centered full-size">
+    <div class="navigation centered" id="part_1"
+        event_click='{
+            "action": "Index.navigationClick"
+        }'
+    >
+        Templates(click me)
+    </div>
+    <div class="navigation centered" id="part_2"
+        event_click='{
+            "action": "Index.navigationClick"
+        }'
+    >
+        Replacing vars
+    </div>
+
+</div>
+

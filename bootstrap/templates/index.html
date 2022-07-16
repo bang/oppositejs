@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts/raleway.css') }}" media="screen">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'assets/shjs/css/themes/sh_acid.min.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'assets/bootstrap/css/bootstrap.min.css') }}" media="screen" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}" media="screen">
+
+    <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/sh_main.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/sh_html.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/lang/sh_javascript.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/lang/sh_css.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/lang/sh_python.js') }}"></script>
+
+    <title id="title">Welcome to Opposite.js!</title>
+</head>
+
+<body onload="sh_highlightDocument();">
+
+    <nav id="main_nav"
+        replace_template='{
+            "template": "components/header/nav.html"
+        }'
+    ></nav>
+
+    <div id="main"
+        replace_template='{
+            "template": "welcome.html"
+        }'
+    > </div>
+
+    <div id="footer"
+        replace_template='{
+            "template": "components/footer/footer.html"
+        }'
+   > </div>
+
+    <div id="dark-wall"></div>
+
+    <!-- bootstrap -->
+    <script type="module" src="{{ url_for('static', filename = 'assets/bootstrap/js/bootstrap.bundle.min.js') }}">
+    </script>
+
+    <!-- Importing custom modules -->
+    <script type="module" src="{{ url_for('static', filename = 'js/main.js') }}"></script>
+
+</body>
+</html>

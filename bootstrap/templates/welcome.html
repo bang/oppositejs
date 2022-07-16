@@ -1,0 +1,129 @@
+<div class="container">
+    <div class="row panel panel-big panel-light-1 panel-first">
+        <h3>What is it and why?</h3>
+        <div class="col">
+            <p>It's a bunch of tools, totally written in Vanilla Javascript, designed to provide a basic template,
+                variables and event processing using new HTML attributes. That means no Typescript nor Node/npm
+                are required!
+            </p>
+
+            <p>The result is lighter and faster projects with a significant reduced amount of dependencies! And all you
+                have to learn is Vanilla Javascript!
+            </p>
+
+        </div>
+    </div>
+
+    <div class="row panel panel-big">
+        <h3>Features</h3>
+        <div class="spacer-minor"></div>
+        <div class="col">
+            <ul>
+                <li>
+                    <h4>Template processing</h4>
+                    <div class="spacer-minor"></div>
+                    Example:
+
+                    <pre class="sh_html">
+                        <code>
+    &lt;div id="ex1"
+        replace_template='{
+            "template":"/templates/examples/example1.html"
+        }'
+    &gt;
+
+    &lt;/div&gt;
+                    </code></pre>
+
+
+                    <div class="spacer"></div>
+                </li>
+                <li>
+                    <h4>Event support</h4>
+                    <p>It's refered to javascript events, but now, passing your modules and methods directly to
+                    Javascript runtime through some different attributes.
+                    </p>
+                    <div class="spacer-minor"></div>
+                    Example:
+                    <pre class="sh_html">
+                        <code>
+    &lt;div id='test' event_click='{
+                                "action":"Mymodule.someMethod",
+                                "params":{"p1": "This is a test!"}
+                   }'&gt;
+        More HTML code here...
+    &lt;/div&gt;
+                        </code>
+                    </pre>
+                    <div class="spacer-minor"></div>
+                </li>
+                <li>
+                    <h4>Variable processing</h4>
+                    You can use variables on templates, off course! You need only to name one like this:
+                    <pre class="sh_javascript">
+                        <code>
+    ${myvar}
+                        </code></pre>
+
+                        Then, you can use a custom HTML attribute to replace this variable.
+                    <pre class="sh_html">
+                        <code>
+    &lt;div id="ex" replace_vars='{"myvar": "This is a test!"}'&gt;
+        ${myvar}
+    &lt;/div&gt;
+                        </code>
+                    </pre>
+
+                    You can call <i>'replace_vars'</i> using Javascript as well.
+
+                    <pre class="sh_javascript">
+                         <code>
+
+    /* mymodule.js */
+
+    import Base from '/static/js/base.js'
+
+
+    export default class MyModule extends Base {
+
+        constructor(app){
+            super()
+            this.app = app
+            var vars = JSON.stringify({"myvar": "This is a test!"})
+            var target = document.querySelector("#ex")
+            this.app.action.replaceVars(target, target, vars)
+        }
+    }
+                        </code>
+                    </pre>
+                </li>
+                <li>Element repeating
+                    <pre class="sh_html">
+                        <code>
+    &lt;div id="some_div" repeat=5&gt;Repeat this&lt;/div&gt;
+                        </code>
+                    </pre>
+
+                </li>
+            </ul>
+            <div class=""></div>
+            <p>
+                Check out the <a href="/documentation">documentation </a>for more details about this and much more!
+            </p>
+        </div>
+    </div>
+
+    <div class="row panel panel-big">
+    <h3>Future</h3>
+    <div class="col">
+        <ul>
+            <li>Plug-in support</li>
+            <li>Route support</li>
+            <li>More helpers</li>
+            <li>Variables as expressions</li>
+            <li>Animation/transition helpers</li>
+            <li>Vanilla JS test tools</li>
+        </ul>
+    </div>
+
+</div>

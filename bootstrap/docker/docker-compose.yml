@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+
+  pvj_front:
+    image: ramtricks/oppositejs:latest
+    container_name: oppositejs
+    build: .
+    working_dir: /home/oppositejs
+    volumes:
+      - ${OPPOSITEJS_HOME_DIR}:/home/oppositejs
+    ports:
+      - "8088:8088"
+    restart:
+      on-failure
+    networks:
+      pvj_net:
+        ipv4_address: 172.27.0.3
+
+networks:
+  pvj_net:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 172.27.0.0/16
+        gateway: 172.27.0.1
