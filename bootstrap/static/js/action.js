@@ -119,8 +119,6 @@ export default class Action {
             else {
                 let new_html = template
                 target.innerHTML = new_html
-                console.log("NEW HTML")
-                console.log(new_html)
             }
             // Temporarily remove repalce_list attribute in order to avoid infinite loops
             let tmp = target.getAttribute("replace_template")

@@ -1,5 +1,5 @@
-
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+/* @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"); */
+@import url("/static/assets/bootstrap/css/icons/bootstrap-icons.css");
 
 /* Custom style */
 
@@ -146,12 +146,19 @@ a.main-menu-icon:visited {
     text-decoration: none;
 }
 
+/* ************************ */
+
+ul.no-bullets {
+    list-style: none;
+    list-style-type: none;
+}
 
 /* Tag styles */
 
 body {
     background-color: lightgray;
-    font-family: Raleway, sans-serif;
+    font-family: OpenSans, sans-serif;
+    font-weight: 300;
 }
 
 input {

@@ -4,20 +4,20 @@
     <meta charset="UTF-8" />
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts/raleway.css') }}" media="screen">
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}" media="screen">
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'assets/shjs/css/themes/sh_acid.min.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/fonts/open-sans.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'assets/fontawesome/css/all.css') }}" media="screen">
+    <!-- Latest compiled and minified Bootstrap 5 CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename = 'assets/bootstrap/css/bootstrap.min.css') }}" media="screen" crossorigin="anonymous">
+    <!-- main custom CSS file -->
     <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}" media="screen">
-
+    <!-- shjs - Syntax hightlight -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'assets/shjs/css/themes/sh_acid.min.css') }}" media="screen">
     <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/sh_main.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/sh_html.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/lang/sh_html.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/lang/sh_javascript.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/lang/sh_css.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/lang/sh_python.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'assets/shjs/js/lang/sh_sh.js') }}"></script>
 
     <title id="title">Welcome to Opposite.js!</title>
 </head>
@@ -42,7 +42,7 @@
         }'
    > </div>
 
-    <div id="dark-wall"></div>
+
 
     <!-- bootstrap -->
     <script type="module" src="{{ url_for('static', filename = 'assets/bootstrap/js/bootstrap.bundle.min.js') }}">

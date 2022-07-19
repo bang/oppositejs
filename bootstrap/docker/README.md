@@ -9,22 +9,21 @@ I'm supposing you have Docker installed. If you don't, follow the links below an
 
 Then, once in the 'infra' directory
 
-Export `OPPOSITEJS_HOME_DIR` and `OPPOSITE_PORT` environment variable as explained before
-- Linux/Mac:
+Export `OPPOSITEJS_HOME_DIR` environment variable as explained before
+
+- Linux/Mac(bash/zsh terminal emulators):
 `export OPPOSITEJS_HOME_DIR=<OPPOSITE_PROJECT_HOME_DIR>`
-`export OPPOSITEJS_PORT=<YOUR_PORT_NUMBER`
 
-- Windows:
+- Windows(cmd):
 `set OPPOSITEJS_HOME_DIR=<OPPOSITE_PROJECT_HOME_DIR>`
-`set OPPOSITEJS_PORT=<YOUR_PORT_NUMBER`
 
-#### First time running docker-compose up?
+#### No docker image yet? Forcing to build using Dockerfile
 
-`docker-compose up --build`
+`docker-compose --env-file .env up --build`
 
 #### Not the first time?
 
-`docker-compose up`
+`docker-compose --env-file .env up`
 
 You're done!
 

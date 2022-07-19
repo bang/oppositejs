@@ -11,5 +11,3 @@ export default class Index extends Base {
         this.app.action.replaceVars(title, title, vars)
     }
 }
-
-

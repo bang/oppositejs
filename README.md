@@ -15,7 +15,7 @@ variables processing totally written in Vanilla Javascript for web applications.
 Using new HTML attributes, it allows devs to link events to their modules, 
 define variables, execute actions and more.
 
-There are four files that represents the "core" of the project
+There are five .js files that represents the "core" of the project
 
  * core.js - It's responsible to detect and process the new attributes that was mentioned
 before. Besides, it's responsible to link events' action to the custom modules methods;
@@ -27,6 +27,8 @@ some important methods to share data between module instances. Thus, all modules
 but the 'core.js' must inherit from Base class in base.js module;
 
  * main.js - It's responsible to start everything and set all custom templates into 'main' div.
+
+ * action.js - 
 
 # HTTP server, npm
 

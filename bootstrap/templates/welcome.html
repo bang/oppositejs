@@ -1,129 +1,105 @@
 <div class="container">
     <div class="row panel panel-big panel-light-1 panel-first">
-        <h3>What is it and why?</h3>
-        <div class="col">
-            <p>It's a bunch of tools, totally written in Vanilla Javascript, designed to provide a basic template,
-                variables and event processing using new HTML attributes. That means no Typescript nor Node/npm
-                are required!
+        <div class="col" >
+            <p>This is the 'Welcome' page for your 'bootstrap' app. You'll find some interesting ways to apply
+                our tools in this page, and maybe use it to make real your own ideas!
             </p>
 
-            <p>The result is lighter and faster projects with a significant reduced amount of dependencies! And all you
-                have to learn is Vanilla Javascript!
+            <p>All the code of this page is in the files below. But you can check the elements using 'inspect' from your browser too. You can see it click
+                on the <i class="bi bi-eye" ></i> icon.
             </p>
+            <div class="row">
+                <div class="col-3">
+                    <ul class="no-bullets" style="margin-left: -30px;">
+                        <li>templates/index.html</li>
+                        <li>templates/welcome.html</li>
+                        <li>static/js/examples/example.js</li>
+                        <li>app.py</li>
+                    </ul>
+                </div>
+                <div class="col-9">
+                    <ul class="no-bullets" style="text-align: left;">
+                        <li><i class="bi bi-eye"></i></li>
+                        <li><i class="bi bi-eye"></i></li>
+                        <li><i class="bi bi-eye"></i></li>
+                        <li><i class="bi bi-eye"></i></li>
+                    </ul>
 
+                </div>
+            </div>
+            <div class="spacer-minor"></div>
         </div>
     </div>
-
-    <div class="row panel panel-big">
-        <h3>Features</h3>
-        <div class="spacer-minor"></div>
+    <div class="row panel panel-big panel-light-1 panel-first" style="text-align: center;">
         <div class="col">
-            <ul>
-                <li>
-                    <h4>Template processing</h4>
+            <div class="row">
+                <h3> Examples</h3>
+                <div class="spacer"></div>
+                <div class="col">
+                    Click event example
                     <div class="spacer-minor"></div>
-                    Example:
-
-                    <pre class="sh_html">
-                        <code>
-    &lt;div id="ex1"
-        replace_template='{
-            "template":"/templates/examples/example1.html"
-        }'
-    &gt;
-
-    &lt;/div&gt;
-                    </code></pre>
-
-
-                    <div class="spacer"></div>
-                </li>
-                <li>
-                    <h4>Event support</h4>
-                    <p>It's refered to javascript events, but now, passing your modules and methods directly to
-                    Javascript runtime through some different attributes.
-                    </p>
+                    <input class="btn btn-primary" type="button" value="Click me!" id="click1"
+                        event_click='{
+                            "module_path": "/static/js/examples/example.js",
+                            "action": "Example.click1"
+                        }'
+                    />
+                </div>
+                <div class="col">
+                    Replace var example
                     <div class="spacer-minor"></div>
-                    Example:
-                    <pre class="sh_html">
-                        <code>
-    &lt;div id='test' event_click='{
-                                "action":"Mymodule.someMethod",
-                                "params":{"p1": "This is a test!"}
-                   }'&gt;
-        More HTML code here...
-    &lt;/div&gt;
-                        </code>
-                    </pre>
+                    <div id="rep" replace_vars='{"v1": "Hey, I&apos;m v1 variable content!"}'>
+                        ${v1}
+                    </div>
+
+                </div>
+                <div class="col">
+                    Change event from select element
                     <div class="spacer-minor"></div>
-                </li>
-                <li>
-                    <h4>Variable processing</h4>
-                    You can use variables on templates, off course! You need only to name one like this:
-                    <pre class="sh_javascript">
-                        <code>
-    ${myvar}
-                        </code></pre>
+                    <select class="form-select" id="click3"
+                        event_change='{
+                            "module_path": "/static/js/examples/example.js",
+                            "action": "Example.click3"
+                        }'
+                    >
+                        <option value="">Select one</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+            </div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+            <div class="row">
+                <div class="col">
+                    Replace var from Javascript<br />
+                    <input class="btn btn-primary" type="button" value="Replace var!" id="click_rep"
+                        event_click='{
+                            "module_path": "/static/js/examples/example.js",
+                            "action": "Example.replaceVarEx",
+                            "params": {"var2": "This is the content from var2"}
+                        }'
+                    />
+                    <div id="var2div">${var2}</div>
+                </div>
 
-                        Then, you can use a custom HTML attribute to replace this variable.
-                    <pre class="sh_html">
-                        <code>
-    &lt;div id="ex" replace_vars='{"myvar": "This is a test!"}'&gt;
-        ${myvar}
-    &lt;/div&gt;
-                        </code>
-                    </pre>
-
-                    You can call <i>'replace_vars'</i> using Javascript as well.
-
-                    <pre class="sh_javascript">
-                         <code>
-
-    /* mymodule.js */
-
-    import Base from '/static/js/base.js'
-
-
-    export default class MyModule extends Base {
-
-        constructor(app){
-            super()
-            this.app = app
-            var vars = JSON.stringify({"myvar": "This is a test!"})
-            var target = document.querySelector("#ex")
-            this.app.action.replaceVars(target, target, vars)
-        }
-    }
-                        </code>
-                    </pre>
-                </li>
-                <li>Element repeating
-                    <pre class="sh_html">
-                        <code>
-    &lt;div id="some_div" repeat=5&gt;Repeat this&lt;/div&gt;
-                        </code>
-                    </pre>
-
-                </li>
-            </ul>
-            <div class=""></div>
-            <p>
-                Check out the <a href="/documentation">documentation </a>for more details about this and much more!
-            </p>
+                <div class="col">
+                    Change event example
+                    <div class="spacer-minor"></div>
+                    <input class="form-check-input" type="checkbox" value="Click me!" id="change1"
+                        event_change='{
+                            "module_path": "/static/js/examples/example.js",
+                            "action": "Example.click2"
+                        }'
+                    /><label class="form-check-label" for="change1" id="l1"> &nbsp;&nbsp;&nbsp;Change me!</label>
+                </div>
+                <div class="col">
+                    Repeat example <br />
+                    <h3 id="repeat" repeat="5">Repeat me!</h3>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="row panel panel-big">
-    <h3>Future</h3>
-    <div class="col">
-        <ul>
-            <li>Plug-in support</li>
-            <li>Route support</li>
-            <li>More helpers</li>
-            <li>Variables as expressions</li>
-            <li>Animation/transition helpers</li>
-            <li>Vanilla JS test tools</li>
-        </ul>
-    </div>
-
 </div>

@@ -31,6 +31,7 @@ export default class Main extends Base{
         import(module_path).then(module_obj => {
             module_obj = module_obj.default
             var instance = new module_obj(this)
+            return instance
         })
         .catch(err => {
             console.error("Can't load module " + module_path + " - " + err)

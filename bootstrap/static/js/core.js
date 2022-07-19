@@ -45,6 +45,7 @@ export default class Core {
             params = attribute['params']
         }
         var action = attribute['action']
+        var module_path = attribute['module_path']
         var items = action.split('.')
         var class_name = items[0]
         var action_method = items[1]
@@ -54,48 +55,31 @@ export default class Core {
             return false;
         }
         if(items.length > 1){
-            // window[<SOMETHING>] doesn't works into class context because of encapsulation I guess.
-            if(class_name == 'HomeModal'){
-                console.log("Loading HomeModal")
-            }
-            var instance = eval("new " + class_name + "(this.app)")
-            // If parameters was sent, call method with parameters.
-            if(params !== undefined) {
-                instance[action_method](event, element, params)
+            if(module_path !== null) {
+                import(module_path).then(module_obj => {
+                    module_obj = module_obj.default
+                    var instance = new module_obj(this)
+                    if(params !== null && params !== undefined){
+                        instance[action_method](event, element, params)
+                    }
+                    else {
+                        instance[action_method](event, element)
+                    }
+                })
+                .catch(err => {
+                    console.error("Can't load module " + module_path + " - " + err)
+                })
             }
             else {
-                instance[action_method](event, element)
+                let msg = "module_path is not defined!"
+                console.error(msg)
+                return
             }
         }
-        else if(params !== undefined) {
-            this.item(event, element)
-        }
-        else {
-            this.item(event, element, params)
-        }
-    }
-
-    _addEvent(event_name) {
-        var eventListName = event_name + "EventIds"
-        if(!(eventListName in this.eventLists)){
-            this.eventLists[eventListName] = new Array()
-        }
-        this.eventLists[eventListName].forEach((id) => {
-            var element = document.querySelector('#' + id)
-            // Adds event handler only where doesn't exists yet
-            if(!(id in this.eventHandlers)){
-                this.eventHandlers[id] = element.addEventListener(event_name, (e) => {
-                    //check for action
-                    if(element.attributes !== undefined ) {
-                        // Executing module method according to attribute
-                        this._processEventAttribute(e, element, event_name)
-                    }
-                }, false)
-            }
-        })
     }
 
     updateElementsEvents(elements_ids, event_name){
+        /* Forces a new addEventListener event for one or more object ids */
         elements_ids.forEach((id) => {
             var element = document.querySelector("#" + id)
             var self = this
@@ -105,14 +89,8 @@ export default class Core {
         })
     }
 
-    _addAllEvents() {
-        SUPPORTED_EVENTS.forEach((event_name) => {
-            this._addEvent(event_name)
-        })
-    }
-
     _dealWithEvents(obj){
-        /* Deals with attributes, selecting specific from it to apply specific actions */
+        /* Look at attributes searching for custom event attributes and adding listeners for them */
         if( obj.attributes !== undefined){
             Array.from(obj.attributes).forEach((attr) => {
                 // Seeking for specific attributes to perform a correspondent action
@@ -143,6 +121,7 @@ export default class Core {
     }
 
     _traverse(obj){
+        /* Look at neasted nodes on DOM processing custom attributes and events */
         if( obj !== null && typeof(obj) == "object" ) {
             // Getting attributes
             this._dealWithAttributes(obj)
@@ -154,15 +133,16 @@ export default class Core {
     }
 
     start() {
+    /* Look at document object searching for custom attributes and events */
         this._traverse(document)
     }
 
     refresh(element) {
+    /* Look at an specific element searching for custom attributes and events. If element is suppress, assume document */
         if(element === undefined || element === null){
             element = document
         }
-
-        if(element !== undefined && element !== null){
+        else if(element !== undefined && element !== null){
             this._traverse(element)
         }
     }
