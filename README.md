@@ -1,9 +1,9 @@
 # Opposite.js
 
-Free template processor totally written in Vanilla Javascript
+Free template processor almost totally written in Vanilla Javascript
 
 # Version
-0.0.4a
+0.0.5a
 
 # Intro
 
@@ -17,41 +17,58 @@ define variables, execute actions and more.
 
 There are five .js files that represents the "core" of the project
 
- * core.js - It's responsible to detect and process the new attributes that was mentioned
-before. Besides, it's responsible to link events' action to the custom modules methods;
+ * core.js - It's responsible to detect and delegate the new attributes process to other modules
+ that was mentioned before. Besides, it's responsible to link events' action to the custom 
+ modules methods;
 
- * config.js - Configure important metadata for the project, such as the 'starter module';
 
- * base.js - Communicates all custom modules with Core class(core.js module), provides config and 
-some important methods to share data between module instances. Thus, all modules 
-but the 'core.js' must inherit from Base class in base.js module;
+ * config.js - Configure important metadata for the project, such as the 'starter module', for
+ example. You can refer to an API module configuration, for example, making this available for all your 
+ custom modules; 
 
- * main.js - It's responsible to start everything and set all custom templates into 'main' div.
 
- * action.js - 
+ * base.js - Communicates all custom modules with the Core class(core.js module), providing config 
+ and some important methods to share data between module instances. Thus, all modules but the 'core.js' must 
+ inherit from Base class in base.js module;
 
-# HTTP server, npm
 
-This framework is agnostic regarding the HTTP server. For now, it has no route processing
+ * action.js - Implements all methods that makes the custom attributes work
+
+
+ * main.js - It's responsible to start everything and set all custom templates into 'main' div. This is the only
+ file you need to refer on `<script>` tag in your HTML code. Check out our [documentation page]()
+
+
+And this is it! Our project is resumed to this five Javascript files for now. Continue reading the next sections to
+learn more about it and how to install it.
+
+
+# Backend
+
+Oppositejs is agnostic regarding the HTTP server. For now, it has no route processing
 integrated to this tools and probably we'll never have. 
 
 We understand `npm` it's the "standard" for web develop. Unfortunately, to have `npm`
-you're obligated to install Node, something we do not agree. So, this project is
-agnostic about HTTP servers and it's not submited to any package manager as 'npm' for
-now. That means you're free to use whatever you want!
+you're obligated to install Node, mainly if you're using Typescript which we 
+do not agree, and many other problems.
+
+So, this project is essentially "agnostic" about backend, and it's not submitted to any 
+package manager as 'npm' for now. That means you're free to use whatever you 
+want(Node included)!
 
 Off course, that brought cost for us. Tests for example, it's something we're actually 
-trying to define which approach works better for the project. 
+trying to define which approach works better for the project once we don't want to have
+dep. 
 
 # Install
 
-## Bootstrap
+## Bootstrap app
 
 We prepared a little 'bootstrap' application for your convenience. However, note that the
 application uses Flask(Python) as route and HTTP server. If you don't want to use Flask, you can try 
 'Download zip file' section and set up the files into your HTTP server structure by yourself. 
 
-However, if you want to try our bootstrap, please download it <a href="#">clicking here</a>
+However, if you want to try our bootstrap, please download it [clicking here]()
 
 After download, you need decompress the file inside your project directory. 
 
@@ -77,5 +94,7 @@ Finally! Run the application!
 
 You're done!
 
-## Download zip file
+## Docker/docker-compose
+
+If you're familiarized with docker, follow the instructions [clicking here]("bootstrap/README.md")
 

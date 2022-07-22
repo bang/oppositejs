@@ -1,26 +1,29 @@
 version: '2'
 
 services:
-
   oppositejs-bootstrap:
-    image: ramtricks/oppositejs-boostrap:latest
+    image: ramtricks/oppositejs-bootstrap:0.0.5a
     container_name: oppositejs-bootstrap
     build: .
     working_dir: /home/developer/oppositejs
     volumes:
-      - ${OPPOSITEJS_HOME_DIR}:/home/developer/oppositejs
+      - /home/andre/Projects/Opposite.js/oppositejs/bootstrap/docker:/home/developer/oppositejs
     ports:
-      - 8888:8088
+      - "8888:8088"
     restart:
       on-failure
-    networks:
-      oppositejs_net:
-        ipv4_address: 172.28.0.4
 
-networks:
-  oppositejs_net:
-    driver: bridge
-    ipam:
-      config:
-      - subnet: 172.28.0.0/16
-        gateway: 172.28.0.1
+    command: bash -c "cd /home/developer/oppositejs-bootstrap && source venv/bin/activate && python3 app.py"
+
+## If you want to setup your own network, uncomment and edit the config below
+#    networks:
+#      oppositejs_net:
+#        ipv4_address: 172.28.0.4
+#
+#networks:
+#  oppositejs_net:
+#    driver: bridge
+#    ipam:
+#      config:
+#      - subnet: 172.28.0.0/16
+#        gateway: 172.28.0.1
