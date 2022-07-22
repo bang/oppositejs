@@ -20,7 +20,7 @@ the <a href="https://flask.palletsproject.com/en/2.1.x/">official Flask page</a>
 
 ## Docker/docker-compose
 
-If you like Docker, there's some instructions about it [here]("docker/README.md")
+If you like Docker, there's some instructions about it [here](docker/README.md)
 
 
 ## Configuring and running
