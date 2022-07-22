@@ -60,41 +60,14 @@ Off course, that brought cost for us. Tests for example, it's something we're ac
 trying to define which approach works better for the project once we don't want to have
 dep. 
 
+Anyway, you'll need a backend to serve HTTP and routes. We rather to build this backend
+in Flask(Python). But again, you can use whatever you want.
+
+
+
 # Install
 
-## Bootstrap app
 
-We prepared a little 'bootstrap' application for your convenience. However, note that the
-application uses Flask(Python) as route and HTTP server. If you don't want to use Flask, you can try 
-'Download zip file' section and set up the files into your HTTP server structure by yourself. 
 
-However, if you want to try our bootstrap, please download it [clicking here]()
 
-After download, you need decompress the file inside your project directory. 
-
-When the file decompression is finished, create a virtualenv!
-
-`python -mvirtualenv venv`
-
-Then, activate the virtualenv
-
-Linux/MacOS - `source venv/bin/activate`
-
-or
-
-Windows - `venv\Scripts\activate`
-
-Almost there! Now, you need install Python dependencies
-
-python -mpip install -r requirements.txt
-
-Finally! Run the application!
-
-`python app.py`
-
-You're done!
-
-## Docker/docker-compose
-
-If you're familiarized with docker, follow the instructions [clicking here]("bootstrap/README.md")
 

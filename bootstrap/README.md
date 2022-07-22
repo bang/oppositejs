@@ -12,14 +12,15 @@ Then you need only to unzip the file in your project directory
 
 ## Backend/router provider
 
-Opposite.js is agnostic about HTTP/router servers and doesn't have an "official"  provider yet(probably will never have). So, you can use whatever you want! But, we're using Flask(Python) for our bootstrap application. To know more about Flask checking out the <a href="https://flask.palletsproject.com/en/2.1.x/">official Flask page</a>
-
+Opposite.js is agnostic about backend and doesn't have an "official" provider 
+yet(probably will never have). So, you can use whatever you want! But, we're using 
+Flask(Python) for our bootstrap application. To know more about Flask checking out 
+the <a href="https://flask.palletsproject.com/en/2.1.x/">official Flask page</a>
 
 
 ## Docker/docker-compose
 
-If you like Docker, there's some instructions about it in `docker` directory.
-
+If you like Docker, there's some instructions about it [here]("docker/README.md")
 
 
 ## Configuring and running
